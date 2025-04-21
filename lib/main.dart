@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart'; // ✅ Import Firebase Core
 import 'home_page.dart';
 import 'menu_page.dart';
 import 'offers_page.dart';
 import 'profile_page.dart';
-import 'more_page.dart'; // Import MorePage
+import 'more_page.dart';
+import 'cart_provider.dart'; // ✅ Import the provider
 
 void main() {
-  runApp(const MyApp());
+  void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+
+    runApp(
+      ChangeNotifierProvider(
+        create: (_) => CartProvider(),
+        child: const MyApp(),
+      ),
+    );
+  }
+
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CartProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +43,7 @@ class MyApp extends StatelessWidget {
 }
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({Key? key}) : super(key: key);
+  const BottomNav({super.key});
 
   @override
   State<BottomNav> createState() => _BottomNavState();
@@ -37,7 +57,7 @@ class _BottomNavState extends State<BottomNav> {
     OffersPage(),
     HomePage(),
     const ProfilePage(),
-    const MorePage(), // Updated to use MorePage
+    const MorePage(),
   ];
 
   void _onItemTapped(int index) {

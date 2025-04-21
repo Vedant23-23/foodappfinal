@@ -41,6 +41,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+
+	<!-- Permissions for Location Access -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to show nearby food options and deliver to your address.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to improve delivery accuracy even when the app is in the background.</string>
+
+	<!-- Google Maps API Key -->
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+	<key>GMSApiKey</key>
+	<string>AIzaSyBhL7D3W7G5JJE91JpIdz0K0XSZM_eYkyg</string>
+
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
